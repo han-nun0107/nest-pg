@@ -3,6 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TaskModule } from '../tasks/task.module';
+import { UserModule } from '../users/user.module';
 
 @Module({
   imports: [
@@ -34,6 +36,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
           'development' /* 운영 시 절대 금지 (true로 설정하고 개발 단계에서 mock 데이터를 넣으면 실제 데이터베이스에 영향을 줌) */,
       }),
     }),
+
+    TaskModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
