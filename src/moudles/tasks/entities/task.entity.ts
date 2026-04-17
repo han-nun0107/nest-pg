@@ -1,4 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 /* 실제 테이블 이름과 매핑이 됌 */
 @Entity('tasks')
@@ -19,4 +25,10 @@ export class TaskEntity {
 
   @Column()
   thumbnail: string;
+
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
+  createAt: Date;
+
+  @UpdateDateColumn({ name: 'update_at', type: 'timestamp' })
+  updateAt: Date;
 }
